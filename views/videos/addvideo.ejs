@@ -1,0 +1,120 @@
+<%- include('../partials/header.ejs') %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="heading">URC Learning Hub | <b>Dashboard</b></h2>
+      <div class="Dashboard-content">
+        <div class="tab">
+          <button
+            class="tablinks"
+            onclick="openCity(event, 'Books')" 
+          >
+            Books
+          </button>
+          <button class="tablinks" onclick="openCity(event, 'Videos')"
+          id="defaultOpen"
+          >
+            Videos
+          </button>
+        </div>
+
+        <div id="Books" class="tabcontent">
+          <h3>Books</h3>
+          <div class="col-md-12">
+            <div class="add_bt">
+                <a href="/addbooks" style="text-decoration: none; color: black;"><p><i class="bi bi-plus-circle-fill"> </i>  Add Books</p></a>
+                
+                <table class="table table-primary table-striped-columns">
+                    <thead>
+                      <tr>
+                        <th scope="col">Book title</th>
+                        <th scope="col">Author's Name</th>
+                        <th scope="col">Book image</th>
+                        <th scope="col">Book Category</th>
+                        <th scope="col">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% if (Books.length > 0){ %> <% Books.forEach(Books => { %>
+                      <tr>
+                    
+                        <td><%= Books.book_title %></td>
+                        <td><%= Books.author_name %></td>
+                        <td><%= Books.book_image_id %></td>
+                        <td><%= Books.book_category %></td>
+                        <td>
+                        <a href="/editbook/<%- Books._id %>" style="margin-right:5px; color:green;"><i class="bi bi-pencil-square"></i></a>
+                            <a href="/deletebook/<%- Books._id %>" style="color: red;"><i class="bi bi-trash"></i></a>
+                        </td>
+                      </tr>
+                      <% }) %> <% } else{ %>
+                        <p>There are no Books to be displayed</p>
+                      <% } %>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+        </div>
+
+        <div id="Videos" class="tabcontent">
+          <h3>Videos</h3>
+          <div class="col-md-12">
+            <div class="add_bt">
+              <a href="/" style="text-decoration: none;color: black;"><p><i class="bi bi-pen"></i> Manage Books</p></a>
+              <div>
+                <p style="color: black;">To get and copy the video url. Click <a href="https://imagesupload.vercel.app" target="_blank">here</a></p>
+            </div>
+              <form method="post" action="/add/category" id="staform">
+                <div>
+                  <label>Book Title</label>
+                  <input
+                    type="text"
+                    name="book_title"
+                    placeholder="Book Title"
+                  />
+                </div>
+                <br />
+                <div>
+                  <label>Author Name</label>
+                  <input
+                    type="text"
+                    name="author_name"
+                    placeholder="Author Name"
+                  />
+                </div>
+                <br />
+                <div>
+                  <label>Book Image Id</label>
+                  <input
+                    type="text"
+                    name="book_image_id"
+                    placeholder="Book Image Id"
+                  />
+                </div>
+                <br />
+                <div>
+                  <label>Book Category</label>
+                  <input
+                    type="text"
+                    name="book_category"
+                    placeholder="Book Category"
+                  />
+                </div>
+                <br />
+                <div>
+                  <label>Book Url</label>
+                  <input type="text" name="book_url" placeholder="Book Url" />
+                </div>
+                <br />
+
+                <button type="submit" class="updatebtn">Add Book</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>

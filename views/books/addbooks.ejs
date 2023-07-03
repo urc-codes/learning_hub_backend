@@ -1,0 +1,116 @@
+<%- include('../partials/header.ejs') %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="heading">URC Learning Hub | <b>Dashboard</b></h2>
+      <div class="Dashboard-content">
+        <div class="tab">
+          <button
+            class="tablinks"
+            onclick="openCity(event, 'Books')"
+            id="defaultOpen"
+          >
+            Books
+          </button>
+          <button class="tablinks" onclick="openCity(event, 'Videos')">
+            Videos
+          </button>
+        </div>
+
+        <div id="Books" class="tabcontent">
+          <h3>Books</h3>
+          <div class="col-md-12">
+            <div class="add_bt">
+              <a href="/" style="text-decoration: none;color: black;"><p><i class="bi bi-pen"></i> Manage Books</p></a>
+              <div>
+                <p style="color: black;">To get and copy the Book url. Click <a href="https://imagesupload.vercel.app" target="_blank">here</a></p>
+                <p style="color: black;">To get and copy the Book image id. Click <a href="https://imagesupload.vercel.app"  target="_blank">here</a></p>
+            </div>
+              <form method="post" action="/savebooks" id="staform">
+                <div>
+                  <label>Book Title</label>
+                  <input
+                    type="text"
+                    name="book_title"
+                    placeholder="Book Title"
+                  />
+                </div>
+                <br />
+                <div>
+                  <label>Author Name</label>
+                  <input
+                    type="text"
+                    name="author_name"
+                    placeholder="Author Name"
+                  />
+                </div>
+                <br />
+                <div>
+                  <label>Book Image Id</label>
+                  <input
+                    type="text"
+                    name="book_image_id"
+                    placeholder="Book Image Id"
+                  />
+                </div>
+                <br />
+                <div>
+                  <label>Book Category</label>
+                  <input
+                    type="text"
+                    name="book_category"
+                    placeholder="Book Category"
+                  />
+                </div>
+                <br />
+                <div>
+                  <label>Book Url</label>
+                  <input type="text" name="book_url" placeholder="Book Url" />
+                </div>
+                <br />
+
+                <button type="submit" class="updatebtn">Add Book</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div id="Videos" class="tabcontent">
+          <h3>Videos</h3>
+          <div class="col-md-12">
+            <div class="add_bt">
+                <a href="/addvideos" style="text-decoration: none; color: black;"><p><i class="bi bi-plus-circle-fill"> </i>  Add Videos</p></a>
+                
+                <table class="table table-primary table-striped-columns">
+                    <thead>
+                      <tr>
+                        <th scope="col">Video title</th>
+                        <th scope="col">Video Link</th>
+                        <th scope="col">Video Category</th>
+                        <th scope="col">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                     
+                      <tr>
+                    
+                        <td>hello</td>
+                        <td>hello</td>
+                        <td>hi</td>
+                        <td>
+                        <a href="/editcategory/" style="margin-right:5px; color:green;"><i class="bi bi-pencil-square"></i></a>
+                            <a href="/deletecategory/" style="color: red;"><i class="bi bi-trash"></i></a>
+                        </td>
+                      </tr>
+                    
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>
