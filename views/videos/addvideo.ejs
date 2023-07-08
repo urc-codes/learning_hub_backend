@@ -60,54 +60,37 @@
           <h3>Videos</h3>
           <div class="col-md-12">
             <div class="add_bt">
-              <a href="/" style="text-decoration: none;color: black;"><p><i class="bi bi-pen"></i> Manage Books</p></a>
-              <div>
-                <p style="color: black;">To get and copy the video url. Click <a href="https://imagesupload.vercel.app" target="_blank">here</a></p>
-            </div>
-              <form method="post" action="/add/category" id="staform">
+              <a href="/" style="text-decoration: none;color: black;"><p><i class="bi bi-pen"></i> Manage Videos</p></a>
+              <form method="post" action="/savevideos" id="staform">
                 <div>
-                  <label>Book Title</label>
+                  <label>Video Title</label>
                   <input
                     type="text"
-                    name="book_title"
-                    placeholder="Book Title"
+                    name="video_title"
+                    placeholder="Video Title"
                   />
                 </div>
                 <br />
                 <div>
-                  <label>Author Name</label>
+                  <label>Video Category</label>
                   <input
                     type="text"
-                    name="author_name"
-                    placeholder="Author Name"
+                    name="video_category"
+                    placeholder="Video Category"
                   />
                 </div>
                 <br />
                 <div>
-                  <label>Book Image Id</label>
+                  <label>Video Url</label>
                   <input
                     type="text"
-                    name="book_image_id"
-                    placeholder="Book Image Id"
+                    name="video_url"
+                    placeholder="Video Url"
                   />
-                </div>
-                <br />
-                <div>
-                  <label>Book Category</label>
-                  <input
-                    type="text"
-                    name="book_category"
-                    placeholder="Book Category"
-                  />
-                </div>
-                <br />
-                <div>
-                  <label>Book Url</label>
-                  <input type="text" name="book_url" placeholder="Book Url" />
                 </div>
                 <br />
 
-                <button type="submit" class="updatebtn">Add Book</button>
+                <button type="submit" class="updatebtn">Add Video</button>
               </form>
             </div>
           </div>

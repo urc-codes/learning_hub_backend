@@ -52,6 +52,114 @@ const deletebook = async (req,res) => {
     })
 }
 
+const book_mobile_app = async(req,res) => {
+    Books.find({book_category:"mobile app"})
+    .then(data => {
+        if(!data){
+            console.log(err)
+        }else{
+            res.send(data)
+        }
+    })
+}
+const book_graphic_design = async(req,res) => {
+    Books.find({book_category:"graphic design"})
+    .then(data => {
+        if(!data){
+            console.log(err)
+        }else{
+            res.send(data)
+        }
+    })
+}
+const book_web_design = async(req,res) => {
+    Books.find({book_category:"web design"})
+    .then(data => {
+        if(!data){
+            console.log(err)
+        }else{
+            res.send(data)
+        }
+    })
+}
+const book_general_programming = async(req,res) => {
+    Books.find({book_category:"general programming"})
+    .then(data => {
+        if(!data){
+            console.log(err)
+        }else{
+            res.send(data)
+        }
+    })
+}
+// end of books apis
+
+// start of videos apis
+const savevideos = async(req,res) => {
+    const data = new Videos({
+        video_title:req.body.video_title,
+        video_category:req.body.video_category,
+        video_url:req.body.video_url
+    })
+    await Videos.insertMany([data])
+    res.redirect('/')
+}
+const deletevideo = async (req,res) => {
+    const id = req.params.id;
+    Videos.findByIdAndDelete(id)
+    .then(data => {
+        if(!data){
+            res.status(404).console.log("cannot delete")
+        }else{
+            res.redirect("/")
+        }
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+}
+const video_mobile_app = async(req,res) => {
+    Videos.find({video_category:"mobile app"})
+    .then(data => {
+        if(!data){
+            console.log(err)
+        }else{
+            res.send(data)
+        }
+    })
+}
+const video_graphic_design = async(req,res) => {
+    Videos.find({video_category:"graphic design"})
+    .then(data => {
+        if(!data){
+            console.log(err)
+        }else{
+            res.send(data)
+        }
+    })
+}
+const video_web_design = async(req,res) => {
+    Videos.find({video_category:"web design"})
+    .then(data => {
+        if(!data){
+            console.log(err)
+        }else{
+            res.send(data)
+        }
+    })
+}
+const video_general_programming = async(req,res) => {
+    Videos.find({video_category:"web design"})
+    .then(data => {
+        if(!data){
+            console.log(err)
+        }else{
+            res.send(data)
+        }
+    })
+}
+
+// end of videos apis
 
 module.exports ={
     home,
@@ -59,4 +167,14 @@ module.exports ={
     addvideos,
     savebooks,
     deletebook,
+    book_mobile_app,
+    book_general_programming,
+    book_graphic_design,
+    book_web_design,
+    savevideos,
+    deletevideo,
+    video_mobile_app,
+    video_general_programming,
+    video_graphic_design,
+    video_web_design,
 };

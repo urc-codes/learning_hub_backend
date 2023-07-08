@@ -1,12 +1,14 @@
 const express = require('express')
 const morgan = require ('morgan')
 const mongoose = require('mongoose')
+const cors  = require('cors')
 const Routes = require('./routes/routes')
 require('dotenv').config()
 
 const app = express()
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
+app.use(cors());
 
 app.set('view engine', 'ejs');
 
