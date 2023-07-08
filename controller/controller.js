@@ -6,7 +6,7 @@ const home = async(req,res) => {
     .then(data => {
       Videos.find()
       .then(data1 => {
-        res.render('Home',{title:'Dashboard', Books:data, Videos:data1 })
+        res.render('home',{title:'Dashboard', Books:data, Videos:data1 })
       })  
     })
     .catch(err => {
