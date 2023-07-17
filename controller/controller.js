@@ -99,11 +99,40 @@ const savevideos = async(req,res) => {
     const data = new Videos({
         video_title:req.body.video_title,
         video_category:req.body.video_category,
-        video_url:req.body.video_url
+        video_link:req.body.video_link
     })
     await Videos.insertMany([data])
     res.redirect('/')
 }
+
+
+const editvideos = async  (req,res) => {
+    Videos.findById({_id:req.params.id},req.body,{new: true},(err,data)=> {
+        if(err){
+            console.log(err)
+        }else {
+    res.render('views/videos/updatevideo', {title:'Edit Video',video: data})
+    }
+})
+}
+
+const updatevideos = async (req,res) => {
+    const id = req.params.id;
+    Videos.findByIdAndUpdate({_id:req.params.id},req.body,(err,data)=> {
+        if(err){
+            console.log(err)
+        }else {
+            res.redirect("/")
+            console.log(data)
+    }
+    });
+}
+
+
+
+
+
+
 const deletevideo = async (req,res) => {
     const id = req.params.id;
     Videos.findByIdAndDelete(id)
@@ -172,6 +201,8 @@ module.exports ={
     book_graphic_design,
     book_web_design,
     savevideos,
+    editvideos,
+    updatevideos,
     deletevideo,
     video_mobile_app,
     video_general_programming,

@@ -14,6 +14,8 @@ router.get("/books/general_programming", controller.book_general_programming)
 
 router.get("/addvideos", controller.addvideos)
 router.post("/savevideos", controller.savevideos)
+// router.get('/editvideo/:id', controller.editvideos);
+// router.post('/updatevideo/:id', controller.updatevideos);
 router.get("/deletevideo/:id", controller.deletevideo)
 router.get("/videos/mobile_app", controller.video_mobile_app)
 router.get("/videos/web_design", controller.video_web_design)
